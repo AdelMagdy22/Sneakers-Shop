@@ -1,3 +1,3 @@
-# sneakershop
+# SneakerShop
 
 A Sneaker Shop Application
