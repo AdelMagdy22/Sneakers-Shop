@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakershop/theme/theme_provider.dart';
@@ -36,8 +34,8 @@ class _ModeSwitch extends State<ModeSwitch> {
         Image.asset(
           color: Theme.of(context).colorScheme.onBackground,
           !dark ? 'assets/images/sun.png' : 'assets/images/moon.png',
-          width: 35,
-          height: 35,
+          width: 40,
+          height: 40,
         ),
       ],
     );

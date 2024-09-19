@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
-import 'package:sneakershop/components/bottom_nav_bar.dart';
-import 'package:sneakershop/components/mode_switch.dart';
+// import 'package:sneakershop/components/bottom_nav_bar.dart';
+// import 'package:sneakershop/components/mode_switch.dart';
 // import 'package:sneakershop/pages/admin/add_shoe_page.dart';
 import 'package:sneakershop/pages/cart_page.dart';
 import 'package:sneakershop/pages/intro_page.dart';
+import 'package:sneakershop/pages/settings_page.dart';
 import 'package:sneakershop/pages/shop_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,34 +18,39 @@ class _HomePageState extends State<HomePage> {
   // this selected index will be used to change the page
   int _selectedIndex = 0;
 
-  void navigatorBottomBar(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   // this list will be used to change the page
   final List<Widget> _page = [
     // the pages that will be displayed
     const ShopPage(),
     const CartPage(),
-    const IntroPage(),
     // const AddShoePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: MyBottomNavBar(
-        onTabChange: (index) => navigatorBottomBar(index),
-      ),
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: const [
-          // switch dark/light mode
-          ModeSwitch()
+        actions: [
+          // Navigate to Cart
+          Padding(
+            padding: const EdgeInsets.only(right: 25.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CartPage(),
+                  ),
+                );
+              },
+              child: const Icon(
+                Icons.shopping_cart_outlined,
+              ),
+            ),
+          ),
         ],
         leading: Builder(
           builder: (context) {
@@ -92,6 +97,54 @@ class _HomePageState extends State<HomePage> {
                       ),
                       title: Text(
                         'Shop',
+                      ),
+                    ),
+                  ),
+                ),
+                // Cart
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                    // setState(() {
+                    //   _selectedIndex = 1;
+                    // });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CartPage(),
+                      ),
+                    );
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 25.0),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.shopping_cart,
+                      ),
+                      title: Text(
+                        'Cart',
+                      ),
+                    ),
+                  ),
+                ),
+                // Settings
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const SettingsPage(),
+                      ),
+                    );
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 25.0),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.settings,
+                      ),
+                      title: Text(
+                        'Settings',
                       ),
                     ),
                   ),

@@ -29,20 +29,28 @@ class IntroPage extends StatelessWidget {
           
               //title
               const Text(
-                'Just Do It',
+                'Snkeaers Shop',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
+              const SizedBox(height: 6),
+              // sub-title
+              Text(
+                'Made With Flutter',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey.shade500,
+                ),
+              ),
               const SizedBox(height: 24),
 
-              // subtitle
+              // sub-subtitle
               Text(
                 'Brand new collection of sneakers made with premium quality',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
                 textAlign: TextAlign.center,
@@ -67,7 +75,7 @@ class IntroPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                
+
                 ),
               )
             ],

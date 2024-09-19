@@ -155,6 +155,17 @@ class _ShopPageState extends State<ShopPage> {
                   addShoeToCart: addShoeToCart,
                   countItem: 4,
                 ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            child: Center(
+              child: Text(
+                'Sneakers Shop',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

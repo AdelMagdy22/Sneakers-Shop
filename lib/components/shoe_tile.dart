@@ -11,7 +11,7 @@ class ShoeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 25.0, top: 10.0, bottom: 10.0),
+      margin: const EdgeInsets.only(left: 25.0, top: 10.0, bottom: 30.0),
       width: 250.0,
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
@@ -20,7 +20,6 @@ class ShoeTile extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SizedBox(height: 5.0),
           // shoe image
           SizedBox(
             height: 200.0,
@@ -39,6 +38,7 @@ class ShoeTile extends StatelessWidget {
               style: TextStyle(color: Colors.grey[600]),
             ),
           ),
+          const SizedBox(height: 20.0),
           // price + details
           Padding(
             padding: const EdgeInsets.only(left: 25.0),
