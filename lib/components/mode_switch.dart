@@ -11,11 +11,10 @@ class ModeSwitch extends StatefulWidget {
 }
 
 class _ModeSwitch extends State<ModeSwitch> {
-  bool dark = false;
-
 
   @override
   Widget build(BuildContext context) {
+    bool dark = Provider.of<ThemeProvider>(context).isDarkMode;
     return Row(
       children: [
         Switch(
@@ -33,7 +32,7 @@ class _ModeSwitch extends State<ModeSwitch> {
         // This is the image that will be displayed next to the switch.
         Image.asset(
           color: Theme.of(context).colorScheme.onBackground,
-          !dark ? 'assets/images/sun.png' : 'assets/images/moon.png',
+          dark ? 'assets/images/moon.png' : 'assets/images/sun.png',
           width: 40,
           height: 40,
         ),
