@@ -4,13 +4,14 @@ import 'package:sneakershop/models/cart.dart';
 import 'package:sneakershop/pages/intro_page.dart';
 import 'package:sneakershop/theme/theme_provider.dart';
 
-void main() {
+void main() async {
+  
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -31,3 +32,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// No additional Dart code is needed here. The provided Android configuration should be placed in the `build.gradle` file of your Android module, not in the Dart file.

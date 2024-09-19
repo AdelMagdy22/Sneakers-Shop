@@ -11,7 +11,7 @@ class Cart extends ChangeNotifier {
     return total;
   }
 
-  // list of shoes for sale
+  // // list of shoes for sale
   List<Shoe> shoesForSale = [
     Shoe(
       name: "Air Jordan",
@@ -38,8 +38,7 @@ class Cart extends ChangeNotifier {
       name: "Lebron",
       price: '250',
       imagePath: 'assets/images/lebron.png',
-      description:
-          'The LeBron 18 is designed to maximize speed and power.',
+      description: 'The LeBron 18 is designed to maximize speed and power.',
     ),
     Shoe(
       name: "Paul George",
@@ -66,8 +65,7 @@ class Cart extends ChangeNotifier {
       name: "ZoomFreak",
       price: '236',
       imagePath: 'assets/images/ZoomFreak.png',
-      description:
-          'The forward-thinking design of his latest signature shoe.',
+      description: 'The forward-thinking design of his latest signature shoe.',
     ),
   ];
 
@@ -89,6 +87,11 @@ class Cart extends ChangeNotifier {
   // remove item from cart
   void removeItemFromCart(Shoe shoe) {
     userCart.remove(shoe);
+    notifyListeners();
+  }
+
+  void clearCart() {
+    userCart.clear();
     notifyListeners();
   }
 }

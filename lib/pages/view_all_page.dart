@@ -6,7 +6,7 @@ import 'package:sneakershop/models/shoe.dart';
 class ViewAllPage extends StatelessWidget {
   final void Function(Shoe) addShoeToCart;
   final Cart value;
-  ViewAllPage({super.key, required this.value, required this.addShoeToCart});
+  const ViewAllPage({super.key, required this.value, required this.addShoeToCart});
 
   @override
   Widget build(BuildContext context) {

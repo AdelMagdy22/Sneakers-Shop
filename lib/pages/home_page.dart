@@ -1,8 +1,8 @@
-// ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:sneakershop/components/bottom_nav_bar.dart';
 import 'package:sneakershop/components/mode_switch.dart';
+// import 'package:sneakershop/pages/admin/add_shoe_page.dart';
 import 'package:sneakershop/pages/cart_page.dart';
 import 'package:sneakershop/pages/intro_page.dart';
 import 'package:sneakershop/pages/shop_page.dart';
@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
     const ShopPage(),
     const CartPage(),
     const IntroPage(),
+    // const AddShoePage(),
   ];
 
   @override
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       drawer: Drawer(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -119,7 +120,10 @@ class _HomePageState extends State<HomePage> {
                 );
               },
               child: const Padding(
-                padding: EdgeInsets.only(left: 25.0),
+                padding: EdgeInsets.only(
+                  left: 25.0,
+                  bottom: 25.0,
+                ),
                 child: ListTile(
                   leading: Icon(
                     Icons.logout,

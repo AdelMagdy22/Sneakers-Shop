@@ -14,7 +14,7 @@ class ShoeTile extends StatelessWidget {
       margin: const EdgeInsets.only(left: 25.0, top: 10.0, bottom: 10.0),
       width: 250.0,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Column(
@@ -22,7 +22,7 @@ class ShoeTile extends StatelessWidget {
         children: [
           const SizedBox(height: 5.0),
           // shoe image
-          Container(
+          SizedBox(
             height: 200.0,
             width: 200.0,
             child: ClipRRect(

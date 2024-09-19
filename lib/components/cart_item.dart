@@ -20,7 +20,32 @@ class CartItem extends StatefulWidget {
 
 class _CartItemState extends State<CartItem> {
   void removeItemFromCart() {
-    Provider.of<Cart>(context, listen: false).removeItemFromCart(widget.shoe);
+    // show dialog box to ask user to confirm remove shoe to cart with yes or no
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Remove from Cart'),
+        content: Text('Do you want to remove ${widget.shoe.name} from cart?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              // remove shoe from cart
+              Navigator.pop(context);
+            },
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () {
+              // add shoe to cart
+              Provider.of<Cart>(context, listen: false).removeItemFromCart(widget.shoe);
+              Navigator.pop(context);
+            },
+            child: const Text('Yes'),
+          ),
+        ],
+      ),
+    );
+
   }
 
   @override
@@ -40,8 +65,12 @@ class _CartItemState extends State<CartItem> {
             color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
-        leading: Image.asset(
-          widget.shoe.imagePath,
+        leading: SizedBox(
+          height: 60.0,
+          width: 60.0,
+          child: Image.asset(
+            widget.shoe.imagePath,
+          ),
         ),
         subtitle: Text(
           widget.shoe.price.toString(),

@@ -14,19 +14,36 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   // add shoe to cart
   void addShoeToCart(Shoe shoe) {
-    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
-
-    // alert the user, shoe added to cart
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('${shoe.name} added to cart'),
-        duration: const Duration(seconds: 1),
+    // show dialog box to ask user to confirm adding shoe to cart with yes or no
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Add to Cart'),
+        content: Text('Do you want to add ${shoe.name} to cart?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              // remove shoe from cart
+              Provider.of<Cart>(context, listen: false)
+                  .removeItemFromCart(shoe);
+              Navigator.pop(context);
+            },
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () {
+              // add shoe to cart
+              Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+              Navigator.pop(context);
+            },
+            child: const Text('Yes'),
+          ),
+        ],
       ),
     );
   }
 
   bool _selected = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +69,8 @@ class _ShopPageState extends State<ShopPage> {
               Text(
                 textAlign: TextAlign.center,
                 'everyone flies.. some fly longer than others',
-                style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.secondary),
               ),
             ],
           ),
@@ -131,8 +149,8 @@ class _ShopPageState extends State<ShopPage> {
                   addShoeToCart: addShoeToCart,
                   countItem: value.getShoesForSale.length,
                 )
-              :// show Hot Picks
-               ShoesItemsPage(
+              : // show Hot Picks
+              ShoesItemsPage(
                   val: value,
                   addShoeToCart: addShoeToCart,
                   countItem: 4,
